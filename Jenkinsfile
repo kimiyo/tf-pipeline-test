@@ -9,7 +9,7 @@ node {
             commandStr += 'else\n'
             commandStr += ' echo "Failure"\n'
             commandStr += 'fi\n'
-            
+            print(commandStr)
             sh commandStr
     }
 }
