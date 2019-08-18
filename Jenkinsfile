@@ -7,7 +7,9 @@ node {
         } else {
             echo 'I execute elsewhere'
             sh "ls -altr"
-            sh 'git clone https://github.com/kimiyo/tf-pipeline-test.git'
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']],
+     userRemoteConfigs: [[url: 'https://github.com/kimiyo/tf-pipeline-test.git']]])
+            #sh 'git clone https://github.com/kimiyo/tf-pipeline-test.git'
             sh 'cd tf-pipeline-test.git'
             sh 'terraform init'
             sh "ls -altr"
