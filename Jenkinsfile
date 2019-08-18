@@ -3,6 +3,7 @@ node {
     stage('Example') {
             //print(env)
             echo sh(script: 'env|sort', returnStdout: true)
+            print(env.Operation)
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/kimiyo/tf-pipeline-test.git']]])
             /*commandStr = 'terraform init\n'    
             commandStr += 'if [$? -eq 0]\n'
