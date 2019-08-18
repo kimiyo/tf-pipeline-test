@@ -31,7 +31,6 @@ node {
             }
             else if (env.Operation == "Create") {
                 createFunction()
-                startFunction()
             }
             else if (env.Operation == "Start") {
                 startFunction()
