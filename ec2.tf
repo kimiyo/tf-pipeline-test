@@ -1,7 +1,7 @@
 # Create a new instance of the latest Ubuntu 14.04 on an
 # t2.micro node with an AWS Tag naming it "HelloWorld"
 provider "aws" {
-  region = "us-west-2"
+  region = "ap-southeast-1"
 }
 
 data "aws_ami" "ubuntu" {
@@ -36,4 +36,12 @@ resource "local_file" "startWeb" {
 resource "local_file" "stopWeb" {
    content = "aws ec2 stop ${aws_instance.web.id}"
    filename = "${path.module}/stpopEC2Instance.sh"
+}
+
+terraform {
+  backend "s3" {
+    bucket = "jh-jenkins-configuration-20190609"
+    key    = "terraform-backend/ec2WebTest"
+    region = "ap-southeast-1"
+  }
 }
