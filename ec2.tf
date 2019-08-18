@@ -38,10 +38,10 @@ resource "local_file" "stopWeb" {
    filename = "${path.module}/stpopEC2Instance.sh"
 }
 
-terraform {
-  backend "s3" {
-    bucket = "jh-jenkins-configuration-20190819"
-    key    = "terraform-backend/ec2WebTest"
-    region = "ap-southeast-1"
-  }
-}
+# terraform {
+#   backend "s3" {
+#     bucket = "jh-jenkins-configuration-20190819"
+#     key    = "terraform-backend/ec2WebTest"
+#     region = "ap-southeast-1"
+#   }
+# }
