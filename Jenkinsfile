@@ -1,4 +1,4 @@
-
+//----------Functions
 def startFunction(){
     echo "call startFunction()"
 }
@@ -11,32 +11,28 @@ def createFunction(){
 def terminateFunction(){
     echo "call terminateFunction()"
 }
+def getGitSource(){
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/kimiyo/tf-pipeline-test.git']]])
+}
+//-----------------------
 node {
     stage('Example') {
             //print(env)
             echo sh(script: 'env|sort', returnStdout: true)
             print("env.Operation=[" + env.Operation+"]")
-            checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/kimiyo/tf-pipeline-test.git']]])
-            /*commandStr = 'terraform init\n'    
-            commandStr += 'if [$? -eq 0]\n'
-            commandStr += 'then\n'
-            commandStr += ' echo "Success"\n'
-            commandStr += 'else\n'
-            commandStr += ' echo "Failure"\n'
-            commandStr += 'fi\n' 
-            print(commandStr) */
+            getGitSource()
             sh "pwd"
             if (env.Operation == "Create") {
-                startFunction()
+                createFunction()
             }
             else if (env.Operation == "Start") {
-                echo "run Start"
+                startFunction()
             }
             else if (env.Operation == "Stop") {
-                echo "run Stop"
+                stopFunction
             }
             else if (env.Operation == "Terminate") {
-                echo "run Terminate"
+                terminateFunction
             }
             //echo "terraform init"
             // sh "terraform apply --auto-approve" 
