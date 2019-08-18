@@ -10,6 +10,7 @@ node {
             commandStr += ' echo "Failure"\n'
             commandStr += 'fi\n' 
             print(commandStr) */
+            sh "pwd"
             sh "terraform init"
             sh "terraform apply --auto-approve"
     }
