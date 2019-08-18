@@ -12,7 +12,7 @@ node {
             commandStr += 'fi\n' 
             print(commandStr) */
             sh "pwd"
-            sh "terraform init"
+            echo "terraform init"
             // sh "terraform apply --auto-approve" 
     }
 }
