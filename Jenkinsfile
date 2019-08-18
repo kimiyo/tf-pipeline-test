@@ -30,6 +30,7 @@ node {
                 sh "terraform plan"
             }
             else if (env.Operation == "Create") {
+                sh "cat ec2.tf"
                 createFunction()
             }
             else if (env.Operation == "Start") {
