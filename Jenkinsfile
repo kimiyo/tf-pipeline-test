@@ -7,9 +7,9 @@ node {
         } else {
             echo 'I execute elsewhere'
             sh "ls -altr"
+            sh "pwd"
             checkout([$class: 'GitSCM', branches: [[name: '*/master']],
      userRemoteConfigs: [[url: 'https://github.com/kimiyo/tf-pipeline-test.git']]])
-            sh 'cd tf-pipeline-test'
             sh 'terraform init'
             sh "ls -altr"
         }
