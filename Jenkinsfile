@@ -7,9 +7,13 @@ def stopFunction(){
 }
 def createFunction(){
     echo "call createFunction()"
+    sh "terraform init"
+    sh "terraform apply --auto-approve"
 }
 def terminateFunction(){
     echo "call terminateFunction()"
+    sh "terraform init"
+    sh "terraform destroy --auto-approve"
 }
 def getGitSource(){
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/kimiyo/tf-pipeline-test.git']]])
