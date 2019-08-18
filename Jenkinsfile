@@ -14,7 +14,13 @@ node {
             commandStr += 'fi\n' 
             print(commandStr) */
             sh "pwd"
-            echo "terraform init"
+            if (env.Operation == "Start") {
+                echo "run Start"
+            }
+            else if (env.Operation == "Stop") {
+                echo "run Stop"
+            }
+            //echo "terraform init"
             // sh "terraform apply --auto-approve" 
     }
 }
