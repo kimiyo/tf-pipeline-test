@@ -1,4 +1,16 @@
-// 이런 형태
+
+def startFunction(){
+    echo "call startFunction()"
+}
+def stopFunction(){
+    echo "call stopFunction()"
+}
+def createFunction(){
+    echo "call createFunction()"
+}
+def terminateFunction(){
+    echo "call terminateFunction()"
+}
 node {
     stage('Example') {
             //print(env)
@@ -14,11 +26,17 @@ node {
             commandStr += 'fi\n' 
             print(commandStr) */
             sh "pwd"
-            if (env.Operation == "Start") {
+            if (env.Operation == "Create") {
+                startFunction()
+            }
+            else if (env.Operation == "Start") {
                 echo "run Start"
             }
             else if (env.Operation == "Stop") {
                 echo "run Stop"
+            }
+            else if (env.Operation == "Terminate") {
+                echo "run Terminate"
             }
             //echo "terraform init"
             // sh "terraform apply --auto-approve" 
