@@ -9,7 +9,7 @@ node {
             sh "ls -altr"
             checkout([$class: 'GitSCM', branches: [[name: '*/master']],
      userRemoteConfigs: [[url: 'https://github.com/kimiyo/tf-pipeline-test.git']]])
-            sh 'cd tf-pipeline-test.git'
+            sh 'cd tf-pipeline-test'
             sh 'terraform init'
             sh "ls -altr"
         }
