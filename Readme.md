@@ -7,3 +7,7 @@
 - 
 - sudo unzip terraform_0.8.5_linux_386.zip
 - mv terraform /usr/local/bin/
+
+- #sh 'git clone https://github.com/kimiyo/tf-pipeline-test.git'
+            
+            
