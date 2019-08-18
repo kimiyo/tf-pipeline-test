@@ -6,6 +6,7 @@ provider "aws" {
 
 data "aws_ami" "ubuntu" {
   most_recent = true
+  security_group_ids = ["sg-011846390fbbd7b5d"]
 
   filter {
     name   = "name"

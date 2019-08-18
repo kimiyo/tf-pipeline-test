@@ -8,7 +8,8 @@ def stopFunction(){
 def createFunction(){
     echo "call createFunction()"
     sh "terraform init"
-    sh "terraform apply --auto-approve"
+    sh "cat ec2.tf"
+    //sh "terraform apply --auto-approve"
 }
 def terminateFunction(){
     echo "call terminateFunction()"
@@ -30,7 +31,6 @@ node {
                 sh "terraform plan"
             }
             else if (env.Operation == "Create") {
-                sh "cat ec2.tf"
                 createFunction()
             }
             else if (env.Operation == "Start") {
