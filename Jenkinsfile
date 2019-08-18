@@ -7,7 +7,7 @@ node {
         } else {
             echo 'I execute elsewhere'
             sh "ls -altr"
-            sh 'git clone git@github.com:kimiyo/tf-pipeline-test.git'
+            sh 'git clone https://github.com/kimiyo/tf-pipeline-test.git'
             sh "ls -altr"
         }
     }
