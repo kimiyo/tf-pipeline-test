@@ -10,4 +10,5 @@
 
 - #sh 'git clone https://github.com/kimiyo/tf-pipeline-test.git'
             
-            
+sudo yum install python3
+sudo pip3 install awscli

@@ -26,8 +26,12 @@ node {
             print("env.Operation=[" + env.Operation+"]")
             getGitSource()
             sh "pwd"
-            if (env.Operation == "Create") {
+            if (env.Operation == "Plan") {
+                sh "terraform plan"
+            }
+            else if (env.Operation == "Create") {
                 createFunction()
+                startFunction()
             }
             else if (env.Operation == "Start") {
                 startFunction()
@@ -40,5 +44,6 @@ node {
             }
             //echo "terraform init"
             // sh "terraform apply --auto-approve" 
+            sh "ls -altr"
     }
 }

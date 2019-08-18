@@ -28,3 +28,12 @@ resource "aws_instance" "web" {
     Name = "JenkinsPipelineTesting"
   }
 }
+
+resource "local_file" "startWeb" {
+   content = "aws ec2 start ${aws_instance.web.0.id}"
+   filename = "${path.module}/startEC2Instance.sh"
+}
+resource "local_file" "stopWeb" {
+   content = "aws ec2 stop ${aws_instance.web.0.id}"
+   filename = "${path.module}/stpopEC2Instance.sh"
+}
