@@ -40,7 +40,7 @@ resource "local_file" "stopWeb" {
 
 terraform {
   backend "s3" {
-    bucket = "jh-jenkins-configuration-20190609"
+    bucket = "jh-jenkins-configuration-20190819"
     key    = "terraform-backend/ec2WebTest"
     region = "ap-southeast-1"
   }
