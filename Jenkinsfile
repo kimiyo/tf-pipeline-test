@@ -29,10 +29,10 @@ node {
                 startFunction()
             }
             else if (env.Operation == "Stop") {
-                stopFunction
+                stopFunction()
             }
             else if (env.Operation == "Terminate") {
-                terminateFunction
+                terminateFunction()
             }
             //echo "terraform init"
             // sh "terraform apply --auto-approve" 
