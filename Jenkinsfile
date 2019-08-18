@@ -1,6 +1,7 @@
 // 이런 형태
 node {
     stage('Example') {
+            print(env)
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/kimiyo/tf-pipeline-test.git']]])
             /*commandStr = 'terraform init\n'    
             commandStr += 'if [$? -eq 0]\n'
@@ -12,6 +13,6 @@ node {
             print(commandStr) */
             sh "pwd"
             sh "terraform init"
-            sh "terraform apply --auto-approve"
+            // sh "terraform apply --auto-approve" 
     }
 }
